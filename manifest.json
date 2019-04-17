@@ -20,13 +20,7 @@
   ],
   "background": {
     "scripts": [
-      "js/agb_init.js",
-      "js/agb_basic.js",
-      "js/agb_common.js",
-      "js/agb_main.js",
-      "js/agb_para.js",
-      "js/agb_chrome.js",
-      "bootstrap.js"
+      "dist/background.js"
     ]
   },
   "content_scripts": [
@@ -35,12 +29,7 @@
         "https://*.ogame.gameforge.com/game/index.php*"
       ],
       "js": [
-        "js/main.js",
-        "js/libs/purify.min.js",
-        "js/basics.js",
-        "js/common.js",
-        "js/overlays.js",
-        "js/init.js"
+        "dist/content.js"
       ],
       "run_at": "document_start"
     },
