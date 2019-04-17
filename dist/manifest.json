@@ -1,0 +1,56 @@
+{
+  "name": "AntiGameReborn",
+  "short_name": "AGR",
+  "version": "6.8.5.2",
+  "description": "AGR - the other OGame experience for all communities.",
+  "default_locale": "en",
+  "manifest_version": 2,
+  "permissions": [
+    "unlimitedStorage",
+    "storage",
+    "cookies",
+    "tabs",
+    "http://*.ogame.gameforge.com/*",
+    "https://*.ogame.gameforge.com/*"
+  ],
+  "web_accessible_resources": [
+    "js/*.js",
+    "skin/*",
+    "loca/*.json"
+  ],
+  "background": {
+    "scripts": [
+      "dist/background.js"
+    ]
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://*.ogame.gameforge.com/game/index.php*"
+      ],
+      "js": [
+        "dist/content.js"
+      ],
+      "run_at": "document_start"
+    },
+    {
+      "matches": [
+        "http://*.ogame.gameforge.com/*",
+        "https://*.ogame.gameforge.com/*"
+      ],
+      "include_globs": [
+        "http://board.??.ogame.gameforge.com/*"
+      ],
+      "css": [
+        "skin/board.css"
+      ],
+      "run_at": "document_start"
+    }
+  ],
+  "icons": {
+    "16": "Icon-16.png",
+    "48": "Icon-48.png",
+    "128": "Icon-128.png"
+  },
+  "minimum_chrome_version": "32"
+}
