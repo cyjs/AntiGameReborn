@@ -1,11 +1,15 @@
 import createDOMPurify from 'dompurify';
-import { AGO } from './core';
+import Port from './dock/port';
 
-window.console.log('AGO', AGO);
+const port = new Port();
+
+port.log('hello world');
+
+port.inaugrate();
+
+const AGO = {};
 
 const DOMPurify = createDOMPurify(window);
-
-window.console.log(DOMPurify);
 
 AGO.Main = {
     Messages: function (a, b) {
@@ -5304,6 +5308,7 @@ AGO.App = {
                 AGO.Uni.abbr = "UNI" + AGO.Uni.number;  // UNI148
                 AGO.App.keyCom = "AGO_" + AGO.Uni.lang; // AGO_DE
                 AGO.App.keyUni = AGO.App.keyCom + "_" + AGO.Uni.abbr;  // AGO_DE_UNI148
+// !!! progress
                 OBJ.copy(OBJ.parse(AGO.Data.getStorage(AGO.App.keyUni + "_App")), AGO.App);
 
                 AGO.App.title = AGO.App.title || AGO.Uni.lang + " " + AGO.Uni.number;
@@ -5480,4 +5485,4 @@ AGO.Data = {
     }
 };
 
-window.top === window.self && window.AGO.Init.Start();
+// window.top === window.self && AGO.Init.Start();

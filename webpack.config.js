@@ -8,7 +8,7 @@ module.exports = {
     content: './src/content.js'
   },
   output: {
-    libraryTarget: "umd",
+    libraryTarget: "window",
     path: path.resolve(__dirname, 'dist'),
     filename: '[name].js'
   },
@@ -27,5 +27,9 @@ module.exports = {
     new webpack.ProvidePlugin({
       browser: 'webextension-polyfill'
     }),
-  ]
+  ],
+  watchOptions: {
+    poll: true,
+    ignored: /node_modules/
+  }
 };
